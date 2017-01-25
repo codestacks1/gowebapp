@@ -11,9 +11,9 @@ import (
 	"github.com/zhang-xiaowen/gowebapp/shared/session"
 
 	"github.com/gorilla/context"
+	"github.com/josephspurrier/csrfbanana"
 	"github.com/julienschmidt/httprouter"
 	"github.com/justinas/alice"
-	"github.com/zhang-xiaowen/csrfbanana"
 )
 
 // Load returns the routes and middleware

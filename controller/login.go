@@ -11,7 +11,7 @@ import (
 	"github.com/zhang-xiaowen/gowebapp/shared/view"
 
 	"github.com/gorilla/sessions"
-	"github.com/zhang-xiaowen/csrfbanana"
+	"github.com/josephspurrier/csrfbanana"
 )
 
 const (

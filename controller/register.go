@@ -10,7 +10,7 @@ import (
 	"github.com/zhang-xiaowen/gowebapp/shared/session"
 	"github.com/zhang-xiaowen/gowebapp/shared/view"
 
-	"github.com/zhang-xiaowen/csrfbanana"
+	"github.com/josephspurrier/csrfbanana"
 )
 
 // RegisterGET displays the register page
