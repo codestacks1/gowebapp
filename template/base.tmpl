@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+	{{JS "static/js/analytics.js"}}
+	<script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script>
+
 <head>
-    <meta charset="utf-8">
+	<style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}</style>
+    <style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style>
+	<style type="text/css">.gm-style { font: 400 11px Roboto, Arial, sans-serif;text-decoration: none; }.gm-style img { max-width: none; }</style>
+	
+	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -9,7 +16,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" href="static/sensingicon/logo.ico">
+    <link rel="icon" type="image/png" href="/static/sensingicon/logo.ico">
     <title>{{template "title" .}}</title>
 
     <!-- Favicons from http://realfavicongenerator.net -->
@@ -30,10 +37,14 @@
     <meta name="msapplication-TileImage" content="/static/favicons/mstile-144x144.png">
 
     {{CSS "static/css/bootstrap.css"}}
+	{{CSS "static/css/rubick_pres.css"}}
+	<!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
+	<!--facebook tweeter Google+ 这些图标不能够出来，全是因为font-awesome.min.css-->
+	{{CSS "//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"}}
     {{CSS "//fonts.googleapis.com/css?family=Open+Sans:300,400,bold,italic"}}
     {{CSS "static/css/global.css"}}
-    {{CSS "static/css/rubick_pres.css"}}
-    {{CSS "static/css/font-awesome.min.css"}}
+    
+    
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,29 +59,9 @@
 </head>
 <body class="no-touch">
 
-    {{template "menu.tmpl" .}}<!--右侧滑出菜单-->
-
     <div class="wrapper">
-        <div class="section section-header">
-            <div class="parallax pattern-image">
-                <img src="static/sensingicon/bg_body.jpg?fit=crop&amp;fm=jpg&amp;h=700&amp;q=75&amp;w=1050" style="transform: translate3d(0px, 147px, 0px);">
-                <!--<img src="/assets/img/header6.jpg"/>-->
-                <div class="container">
-                    <div class="content">
-                        <h1>SENSING TECH</h1>
-                        <div class="separator-container">
-                            <div class="separator line-separator">∎</div>
-                        </div>
-                        <h5>北京深醒科技有限公司成立于2016年1月，是一家从事人工智能方向，集研发、生产和销售为一体的高科技公司，以人脸识别技术切入AI战场。</h5>
-                        <h5>成立近一年来，已为安防监控、金融、地产、学校、医院等领域提供多种解决方案。</h5>
-                    </div>
-                </div>
-            </div>
-            <a href="" data-scroll="true" data-id="#whoWeAre" class="scroll-arrow hidden-xs hidden-sm">
-                <i class="fa fa-angle-down"></i>
-            </a>
-        </div>
-
+        
+		{{template "homesection"}}
         {{template "whoweare" .}}<!--关于-->
         {{template "visioning" .}}<!--愿景-->
         {{template "follow" .}}<!--关注-->
@@ -84,14 +75,62 @@
     </div>
 
     {{JS "static/js/jquery1.12.4.min.js"}}
-    {{JS "static/js/underscore-min.js"}}
     {{JS "static/js/bootstrap.min.js"}}
+	{{JS "static/js/underscore-min.js"}}
     {{JS "static/js/global.js"}}
-    {{JS "static/js/analytics.js"}}
+    
     {{JS "static/js/jquery.waypoints.min.js"}}
     {{JS "static/js/rubick_pres.js"}}
-    {{JS "static/js/modernizr.js"}}
+    {{JS "static/js/modernizr-custom.js"}}
+	{{JS "static/js/jquery.sharrre.js"}}
+	
+	<script type="text/javascript">
 
+        $('#twitter').sharrre({
+          share: {
+            twitter: true
+          },
+          enableHover: false,
+          enableTracking: true,
+          enableCounter: false,
+          buttons: { twitter: {via: 'CreativeTim'}},
+          click: function(api, options){
+            api.simulateClick();
+            api.openPopup('twitter');
+          },
+          template: '<i class="fa fa-twitter"></i> Twitter &middot; 532',
+          url: 'http://presentation.creative-tim.com/'
+        });
+
+        $('#facebook').sharrre({
+          share: {
+            facebook: true
+          },
+          enableHover: false,
+          enableTracking: true,
+          enableCounter: false,
+          click: function(api, options){
+            api.simulateClick();
+            api.openPopup('facebook');
+          },
+          template: '<i class="fa fa-facebook-square"></i> Facebook &middot; 352',
+          url: 'http://presentation.creative-tim.com/'
+        });
+
+    </script>
+	
+	<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46172202-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+	
+	{{template "menu.tmpl" .}}<!--右侧滑出菜单-->
     {{template "foot" .}}
 
 </body>
